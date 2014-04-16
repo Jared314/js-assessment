@@ -21,8 +21,7 @@ define(function() {
         var a = null,
             b = null,
             result = [],
-            j = function(x){ var r = x.slice(0); r.unshift(a); return r; },
-            t = null;
+            j = function(x){ var r = x.slice(0); r.unshift(a); return r; };
 
         for (var i = 0; i < arr.length; i++) {
             b = arr.slice(0);
