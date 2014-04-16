@@ -4,17 +4,16 @@ define([ 'jquery' ], function($) {
   return {
     async : function(value) {
         var d = $.Deferred();
-        d.resolve(value);
+        setTimeout(function() { d.resolve(value); }, 10);
         return d.promise();
     },
 
     manipulateRemoteData : function(url) {
         var d = $.Deferred();
         
-        $.get(url, function(data){
+        $.get(url).then(function(data){
             var people = data.people.map(function(x){ return x.name; });
-            people.sort();
-            d.resolve(people);
+            d.resolve(people.sort());
         });
 
         return d.promise();
